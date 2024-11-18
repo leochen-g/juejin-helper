@@ -20,8 +20,8 @@ env:
   SERVERPUSHKEY: ${{ secrets.SERVERPUSHKEY }}
   FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
   AIBOTK_HOOK: ${{ secrets.AIBOTK_HOOK }}
-  AIBOTK_KEY: ${{ secret.AIBOTK_KEY }}
-  AIBOTK_RECIVER: ${{ secret.AIBOTK_RECIVER }}
+  AIBOTK_KEY: ${{ secrets.AIBOTK_KEY }}
+  AIBOTK_RECIVER: ${{ secrets.AIBOTK_RECIVER }}
 
 jobs:
   CheckIn:
