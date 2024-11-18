@@ -16,6 +16,7 @@ interface PushPlusOptions extends NotificationOptions {}
 interface WeComOptions extends NotificationOptions {}
 interface WeiXinOptions extends WeComOptions {}
 interface FeiShuOptions extends NotificationOptions {}
+interface WeimishuOptions extends NotificationOptions {}
 
 export class NotificationKit {
   /**
@@ -227,6 +228,28 @@ export class NotificationKit {
     return this.wecomWebhook(options);
   }
 
+  /**
+   * 企业微信Webhook
+   * @param options
+   */
+  async wimishuWebhook(options: WeimishuOptions ) {
+    const url: string | unknown = env.AIBOTK_HOOK;
+    if (!url || url === "") {
+      throw new Error("未配置微秘书Hook");
+    }
+
+    return axios.post(url as string, {
+      apiKey: env.AIBOTK_KEY,
+      roomName: env.AIBOTK_RECIVER,
+      message: {
+        type: 1,
+        content: `${options.title}\n${options.content}`
+      }
+    }, headers: {
+        "Content-Type": "application/json"
+      });
+  }
+
   newVersion = {
     has: false,
     name: pkg.version,
@@ -260,6 +283,7 @@ export class NotificationKit {
     await trycatch("邮件", this.email.bind(this));
     await trycatch("钉钉", this.dingtalkWebhook.bind(this));
     await trycatch("微信", this.wecomWebhook.bind(this));
+    await trycatch("微秘书", this.wimishuWebhook.bind(this));
     await trycatch("PushPlus", this.pushplus.bind(this));
     await trycatch("Server酱", this.serverPush.bind(this));
     await trycatch("飞书", this.feishuWebhook.bind(this));
