@@ -38,5 +38,8 @@ module.exports = {
   /**
    * 飞书配置
    */
-  FEISHU_WEBHOOK: env.FEISHU_WEBHOOK
+  FEISHU_WEBHOOK: env.FEISHU_WEBHOOK,
+  AIBOTK_HOOK: env.AIBOTK_HOOK,
+  AIBOTK_KEY: env.AIBOTK_KEY,
+  AIBOTK_RECIVER: env.AIBOTK_RECIVER
 };
