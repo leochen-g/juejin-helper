@@ -19,6 +19,9 @@ env:
   WEIXIN_WEBHOOK: ${{ secrets.WEIXIN_WEBHOOK }}
   SERVERPUSHKEY: ${{ secrets.SERVERPUSHKEY }}
   FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+  AIBOTK_HOOK: ${{ secrets.AIBOTK_HOOK }}
+  AIBOTK_KEY: ${{ secret.AIBOTK_KEY }}
+  AIBOTK_RECIVER: ${{ secret.AIBOTK_RECIVER }}
 
 jobs:
   CheckIn:
