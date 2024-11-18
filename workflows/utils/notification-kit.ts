@@ -245,9 +245,7 @@ export class NotificationKit {
         type: 1,
         content: `${options.title}\n${options.content}`
       }
-    }, headers: {
-        "Content-Type": "application/json"
-      });
+    });
   }
 
   newVersion = {
